@@ -9,17 +9,17 @@ import Spreadsheet
 
 class Entries():
     def __init__():
-        table = Spreadsheet()
+        self.table = Spreadsheet()
 
     def getNumEntries():
-        return table.numRows() - 1 # return number of rows - 1 (excluding column labels)
+        return self.table.numRows() - 1 # return number of rows - 1 (excluding column labels)
 
     def getEntry(pk):
         if pk > getNumEntries + 1 or pk < 2: # if the primary key is out of bounds, raise exception
             raise ValueError("pk out of bounds")
 
-        row = table.getRow(pk)
-
-            
+        row = self.table.getRow(pk)
+        entry = self.__processRow(row)
+        return entry
 
     

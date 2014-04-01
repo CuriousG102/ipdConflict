@@ -1,16 +1,16 @@
 class Location():
     def __init__():
-        resource = None
-        mineType = None
-        locationName = None
-        stdMeasure = None # stdMeasure is defined such that annualLocationCapacity * stdMeasure = kgLocationCapacity
+        self.resource = None
+        self.mineType = None
+        self.locationName = None
+        self.stdMeasure = None # stdMeasure is defined such that annualLocationCapacity * stdMeasure = kgLocationCapacity
 
-        annualLocationCapacity = None #in std measure
-        ppu = None #price per unit(of stdMeasure) in nominal dollars
-        geoLong = None
-        geoLat = None
-        precisionCode = None
-        arbitraryFields = {}
+        self.annualLocationCapacity = None #in std measure
+        self.ppu = None #price per unit(of stdMeasure) in nominal dollars
+        self.geoLong = None
+        self.geoLat = None
+        self.precisionCode = None
+        self.arbitraryFields = {}
     
     def getResource():
         return self.resource
