@@ -8,7 +8,7 @@
 import Spreadsheet
 
 class Entries():
-    def __init__():
+    def __init__(self):
         self.table = Spreadsheet()
 
     def getNumEntries():
@@ -21,5 +21,6 @@ class Entries():
         row = self.table.getRow(pk)
         entry = self.__processRow(row)
         return entry
-
-    
+        
+    def makeEntry(location):
+         
