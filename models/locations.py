@@ -1,8 +1,8 @@
 class Location():
     def __init__():
-        resource = ""
-        mineType = ""
-        locationName = ""
+        resource = None
+        mineType = None
+        locationName = None
         stdMeasure = None # stdMeasure is defined such that annualLocationCapacity * stdMeasure = kgLocationCapacity
 
         annualLocationCapacity = None #in std measure
@@ -10,7 +10,7 @@ class Location():
         geoLong = None
         geoLat = None
         precisionCode = None
-        arbitraryFields = []
+        arbitraryFields = {}
     
     def getResource():
         return self.resource
@@ -39,4 +39,43 @@ class Location():
     def getPpk():
         return self.getYrlyLocValue()/self.getKgCapacity()
 
+    def getLong():
+        return self.geoLong
     
+    def getLat():
+        return self.geoLat
+    
+    def getPrecisCode():
+        return self.precisionCode
+    
+    def getArbitFields():
+        return self.arbitraryFields.copy()
+        
+    def setResource(resource):
+        self.resource = resource
+    
+    def setMineType(mineType):
+        self.mineType = mineType
+        
+    def setLocName(locName):
+        self.locationName = locName
+        
+    def setStdMeasure(stdMeasure):
+        self.stdMeasure = stdMeasure
+    
+    def setAnnlLocCapacity(annlCapacity):
+        self.annualLocationCapacity = annlCapacity
+        
+    def setPpu(ppu):
+        self.ppu = ppu
+    
+    def setLongLat(geoLong, geoLat):
+        self.geoLong = geoLong
+        self.geoLat = geoLat
+        
+    def setPrecisCode(code):
+        self.precisionCode = code
+     
+    def setArbitField(key, value):
+        self.arbitraryFields[key] = value
+  
