@@ -8,8 +8,13 @@
 import Spreadsheet
 
 class Entries():
-    def __init__(self):
+    def __init__(self, country, year):
+        spreadsheetID = "ipdConflict" + country + str(year)
         self.table = Spreadsheet()
+        if self.table.isPresent(spreadsheetID):
+            self.table.open(spreadsheetID)
+        else:
+            self.table.make(spreadsheetID)
 
     def getNumEntries():
         return self.table.numRows() - 1 # return number of rows - 1 (excluding column labels)
@@ -21,6 +26,11 @@ class Entries():
         row = self.table.getRow(pk)
         entry = self.__processRow(row)
         return entry
-        
+    
     def makeEntry(location):
-         
+        pk = self.getNumEntries() + 2
+        self.changeEntry(pk, location)    
+
+    def changeEntry(pk, location):
+        rowToInsert = pk
+        # make an array of items to insert into row, pass that array to spreadsheet while specifying row 
