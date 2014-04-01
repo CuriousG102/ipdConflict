@@ -1,5 +1,7 @@
-import gdata
+import csv
 
-class Spreadsheet():
-    def __init__(self, username, password):
-        
+class Spreadsheet:
+    numSheets = 0
+
+    def __init__(self):
+        n

@@ -7,7 +7,7 @@
 
 import Spreadsheet
 
-class Entries():
+class Entries:
     def __init__(self, country, year):
         spreadsheetID = "ipdConflict" + country + str(year)
         self.table = Spreadsheet()

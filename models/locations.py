@@ -1,4 +1,4 @@
-class Location():
+class Location:
     def __init__(self):
         self.resource = None
         self.mineType = None
