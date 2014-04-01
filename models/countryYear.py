@@ -16,10 +16,10 @@ class Entries:
         else:
             self.table.make(spreadsheetID)
 
-    def getNumEntries():
+    def getNumEntries(self):
         return self.table.numRows() - 1 # return number of rows - 1 (excluding column labels)
 
-    def getEntry(pk):
+    def getEntry(self, pk):
         if pk > getNumEntries + 1 or pk < 2: # if the primary key is out of bounds, raise exception
             raise ValueError("pk out of bounds")
 
@@ -27,10 +27,10 @@ class Entries:
         entry = self.__processRow(row)
         return entry
     
-    def makeEntry(location):
+    def makeEntry(self, location):
         pk = self.getNumEntries() + 2
         self.changeEntry(pk, location)    
 
-    def changeEntry(pk, location):
+    def changeEntry(self, pk, location):
         rowToInsert = pk
         # make an array of items to insert into row, pass that array to spreadsheet while specifying row 

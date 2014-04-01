@@ -12,70 +12,70 @@ class Location:
         self.precisionCode = None
         self.arbitraryFields = {}
     
-    def getResource():
+    def getResource(self):
         return self.resource
 
-    def getMineType():
+    def getMineType(self):
         return self.mineType
 
-    def getLocationName():
+    def getLocationName(self):
         return self.locationName
 
-    def getStdMeasure():
+    def getStdMeasure(self):
         return self.stdMeasure
 
-    def getAnnlLocCapacity():
+    def getAnnlLocCapacity(self):
         return self.annualLocationCapacity
 
-    def getPpu():
+    def getPpu(self):
         return self.ppu
 
-    def getYrlyLocValue():
+    def getYrlyLocValue(self):
         return self.getPpu() * self.getAnnlLocCapacity()
 
-    def getKgCapacity():
+    def getKgCapacity(self):
         return self.getAnnlLocCapacity() * self.getStdMeasure()
 
-    def getPpk():
+    def getPpk(self):
         return self.getYrlyLocValue()/self.getKgCapacity()
 
-    def getLong():
+    def getLong(self):
         return self.geoLong
     
-    def getLat():
+    def getLat(self):
         return self.geoLat
     
-    def getPrecisCode():
+    def getPrecisCode(self):
         return self.precisionCode
     
-    def getArbitFields():
+    def getArbitFields(self):
         return self.arbitraryFields.copy()
         
-    def setResource(resource):
+    def setResource(self, resource):
         self.resource = resource
     
-    def setMineType(mineType):
+    def setMineType(self, mineType):
         self.mineType = mineType
         
-    def setLocName(locName):
+    def setLocName(self, locName):
         self.locationName = locName
         
-    def setStdMeasure(stdMeasure):
+    def setStdMeasure(self, stdMeasure):
         self.stdMeasure = stdMeasure
     
-    def setAnnlLocCapacity(annlCapacity):
+    def setAnnlLocCapacity(self, annlCapacity):
         self.annualLocationCapacity = annlCapacity
         
-    def setPpu(ppu):
+    def setPpu(self, ppu):
         self.ppu = ppu
     
-    def setLongLat(geoLong, geoLat):
+    def setLongLat(self, geoLong, geoLat):
         self.geoLong = geoLong
         self.geoLat = geoLat
         
-    def setPrecisCode(code):
+    def setPrecisCode(self, code):
         self.precisionCode = code
      
-    def setArbitField(key, value):
+    def setArbitField(self, key, value):
         self.arbitraryFields[key] = value
   
