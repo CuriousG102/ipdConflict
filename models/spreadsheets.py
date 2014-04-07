@@ -25,7 +25,7 @@ class Spreadsheet:
             raise Exception("Spreadsheet is open in another Spreadsheet object")
 
         self.name = spreadsheetID
-        openSheets.append(spreadsheetID)
+        Spreadsheet.openSheets.append(spreadsheetID)
 
         with open(self.name, 'r') as f:
             reader = csv.reader(f, dialect = 'excel')
@@ -38,7 +38,7 @@ class Spreadsheet:
             raise Exception("Spreadsheet already exists")
 
         self.name = spreadsheetID
-        openSheets.append(spreadsheetID)
+        Spreadsheet.openSheets.append(spreadsheetID)
         
         self.table.append(['Resource', 'Mine Type', 'Location Name', \
         'Standard Measure', 'Annual Location Capacity in Standard Measure', 'January PPU', 'Yearly Location Value', 'Capacity of Location in Kilograms', 'Price Per Kilogram', 'Longitude', 'Latitude', 'Precision Code'])
@@ -62,5 +62,8 @@ class Spreadsheet:
             writer = csv.writer(f, dialect = 'excel')
             writer.writerows(self.table)
 
-
+	def close(self):
+		self.save()
+		Spreadsheet.openSheets.remove(self.name)
+		self.table = []
 

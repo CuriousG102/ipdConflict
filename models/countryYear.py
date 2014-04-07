@@ -60,7 +60,7 @@ class Entries:
         keys = arbitFields.keys().sort()
         
         for key in keys:
-            row.extend([key + '!' +  arbitFields[key])
+            row.extend(key + '!' +  arbitFields[key])
         
         return row
 
@@ -68,7 +68,7 @@ class Entries:
         locToReturn = Location()
         l = locToReturn
 
-        functionsToCall = [l.setResource, l.setMineType, l.setLocName, l.setStdMeasure\
+        functionsToCall = [l.setResource, l.setMineType, l.setLocName, l.setStdMeasure,\
                            l.setAnnlLocCapacity, l.setPpu, l.setLongLat, l.setPrecisCode]
         
         i = 0
@@ -91,3 +91,6 @@ class Entries:
 
     def save(self):
         self.table.save()
+
+	def close(self):
+		self.table.close()
