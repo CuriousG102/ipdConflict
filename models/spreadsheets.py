@@ -27,8 +27,8 @@ class Spreadsheet:
         self.name = spreadsheetID
         Spreadsheet.openSheets.append(spreadsheetID)
 
-        with open(self.name, 'r') as f:
-            reader = csv.reader(f, dialect = 'excel')
+        with open(self.name, 'rU') as f:
+            reader = csv.reader(f)
             
             for row in reader:
                 self.table.append(row)

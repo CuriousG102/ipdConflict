@@ -11,8 +11,8 @@ from spreadsheets import Spreadsheet
 from locations import Location
 
 class Entries:
-    def __init__(self, country, year): # complete
-        spreadsheetID = "ipdConflict" + country + str(year)
+    def __init__(self, country, year, entryPath): # complete
+        spreadsheetID = entryPath + "ipdConflict" + country + str(year)
         self.table = Spreadsheet()
         if self.table.isPresent(spreadsheetID):
             self.table.open(spreadsheetID)
