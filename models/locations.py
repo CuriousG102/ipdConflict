@@ -31,13 +31,24 @@ class Location:
         return self.ppu
 
     def getYrlyLocValue(self):
-        return self.getPpu() * self.getAnnlLocCapacity()
+        try:
+            return float(self.getPpu()) * float(self.getAnnlLocCapacity())
+        except:
+            return None
 
     def getKgCapacity(self):
-        return self.getAnnlLocCapacity() * self.getStdMeasure()
+        try:
+            return float(self.getAnnlLocCapacity())\
+             * float(self.getStdMeasure())
+        except:
+            return None
 
     def getPpk(self):
-        return self.getYrlyLocValue()/self.getKgCapacity()
+        try:
+            return float(self.getYrlyLocValue())\
+            /float(self.getKgCapacity())
+        except:
+            return None
 
     def getLong(self):
         return self.geoLong

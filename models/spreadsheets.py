@@ -21,7 +21,7 @@ class Spreadsheet:
         if not self.isPresent(spreadsheetID):
             raise Exception("Spreadsheet does not exist")
         
-        if spreadsheetID in openSheets:
+        if spreadsheetID in Spreadsheet.openSheets:
             raise Exception("Spreadsheet is open in another Spreadsheet object")
 
         self.name = spreadsheetID
@@ -62,8 +62,8 @@ class Spreadsheet:
             writer = csv.writer(f, dialect = 'excel')
             writer.writerows(self.table)
 
-	def close(self):
-		self.save()
-		Spreadsheet.openSheets.remove(self.name)
-		self.table = []
+    def close(self):
+        self.save()
+        Spreadsheet.openSheets.remove(self.name)
+        self.table = []
 

@@ -12,7 +12,8 @@ from locations import Location
 
 class Entries:
     def __init__(self, country, year, entryPath): # complete
-        spreadsheetID = entryPath + "ipdConflict" + country + str(year)
+        spreadsheetID = entryPath + "ipdConflict" + country + str(year)\
+        + '.csv'
         self.table = Spreadsheet()
         if self.table.isPresent(spreadsheetID):
             self.table.open(spreadsheetID)
@@ -59,8 +60,9 @@ class Entries:
 
         keys = arbitFields.keys().sort()
         
-        for key in keys:
-            row.extend(key + '!' +  arbitFields[key])
+        if keys != None:
+            for key in keys:
+                row.extend(key + '!' +  arbitFields[key])
         
         return row
 
@@ -92,5 +94,5 @@ class Entries:
     def save(self):
         self.table.save()
 
-	def close(self):
-		self.table.close()
+    def close(self):
+        self.table.close()

@@ -4,9 +4,7 @@ from models.locations import Location
 
 class Producer:
 
-    def __init__(self, usgsSourceName,\
-    stdValuesDict = {'mt':1000, 'kg':1, 'troy oz':0.0311034768\
-                     'dmtu fe':1000}, entryPath):
+    def __init__(self, usgsSourceName, entryPath, stdValuesDict = {'mt':1000, 'kg':1, 'troy oz':0.0311034768, 'dmtu fe':1000}):
 
         self.entryPath = entryPath
         self.usgsSourceName = usgsSourceName
@@ -28,10 +26,15 @@ class Producer:
             newLoc = Location()
             newLoc.resource = line[0]
             newLoc.stdMeasure = line[1]
+            if newLoc.stdMeasure == "":
+                newLoc.stdMeasure = None
+
             newLoc.locName = line[2]
             newLoc.annualLocationCapacity = line[3]
+            if newLoc.annualLocationCapacity == "":
+                newLoc.annualLocationCapacity = None
 
-            findValues(newLoc, year)
+            self.findValues(newLoc, year)
             entries.makeEntry(newLoc)
 
         entries.save()
@@ -43,7 +46,7 @@ class Producer:
         commodIndex = self.usgsTable[4]
         commodToFind = newLoc.resource
        
-        for i in range(0, len(commodIndex)):
+        for i in range(1, len(commodIndex)):
             commod = commodIndex[i]
             if commod.lower() in commodToFind.lower():
                 units = self.usgsTable[5][i]
@@ -57,15 +60,17 @@ class Producer:
                     isCents = True
                 
                 usgsStdValue = None
+                try:
+                    if units[1].lower() in self.stdValues.keys():
+                        usgsStdValue = self.stdValues[units[1].lower()]
+                except:
+                    pass
 
-                if units[1].lower() in self.stdValues.keys():
-                    usgsStdValue = self.stdValues[units[1].lower()]
-                
-                if usgsStdValue != None and newLoc.stdMeasure != None
+                if usgsStdValue != None and newLoc.stdMeasure != None\
                     and newLoc.annualLocationCapacity != None:
 
-                    usgsMultiplier = newLoc.stdMeasure/usgsStdValue
-                    newLoc.ppu = getPpu(usgsMultiplier, year, isCents, i)
+                    usgsMultiplier = float(newLoc.stdMeasure)/usgsStdValue
+                    newLoc.ppu = self.getPpu(usgsMultiplier, year, isCents, i)
                 break
 
     def getPpu(self, usgsMultiplier, year, isCents, index):
@@ -78,7 +83,7 @@ class Producer:
 
         if row != None:
             dollarString = self.usgsTable[row][index]
-            if __is_number(dollarString):
+            if self.__is_number(dollarString):
                 dollarNum = float(dollarString)
                 if isCents:
                     dollarNum = dollarNum/100
@@ -87,7 +92,7 @@ class Producer:
             else:
                 return None
 
-    def __is_number(s):
+    def __is_number(self, s):
         try:
             float(s)
             return True

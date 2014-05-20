@@ -1,0 +1,21 @@
+Commodity,StdMeasure,Location Name,Annual Capacity
+Cement,1000,"Kimpese plant, 40 kilometers south of Kinshasa",318000.0
+Cement,1000,Lukala plant near Kinshasa in Bas-Congo Province,360000.0
+Cement,1000,"Kabimba plant near Lubumbashi, Katanga Province",50000.0
+Cement,1000,"Lubudi plant, between Likasi and Kolwezi, Katanga Province",200000.0
+Coalbituminouscoal,1000,Luena Mine,800000.0
+Diamond,0.0002,"Diamond mines at Mbujiimaya, Kasai-Oriental Province,and at Tshikapa, Kasai Occidental Province",10000000.0
+Diamonde,0.0002,"Various small-scale placer and alluvial operations in Kasa´ Occidental Provinces, in Bandundu Province, at Bafwansende and Kisangani in Haut-Congo Province, atLubutu in Maniema Province at Kota-Koli, Yakoma, andGbadolite in Equateur Province), in North Kivu Province, and at Luozi in Bas-Congo Province",27000000.0
+Gold,0.0002,South Kivu Province,4800.0
+GoldNA,0.0002,"Kilo-Moto Gold Mine near Bunia, Haut-Congo Province",
+Niobium and tantalumNA,1000,North and South Kivu Provinces,
+Petroleumcrude,,"Kifuku, Kinkasi, Liawenda, Makelekese, Muanda, Nsiamfuma, and Tschiende onshore wells",5480.0
+Petroleumcrude,,"GCO, Libwa, Lubi, Mibale, Moko, Motoba, Mwambe, andTshlala offshore wells",3650.0
+Petroleumrefined,,Petroleum refinery at Muanda2,6200.0
+Silver,1,Dikulushi Mine ,62000.0
+SulfurNA,1,Sulfuric acids plant at Kolwezi and Shituru,
+TinNA,1,Manono in Katanga Province; Kalima and Punia in Maniema Province; Bisuru Bibatama Mine near Masisi; the Bisie Mine near Walikale in North Kivu Province; and Nyabibwein South Kivu Province,
+TungstenNA,1,North and South Kivu Provinces,
+Zinczincinzincoxide,1,Big Hill tailings and cobalt smelter at Lubumbashi,15000.0
+Zinc,1,Kolwezi zinc leach plant and refinery,30000.0
+Zinc,1,Kolwezi zinc smelter,72000.0
